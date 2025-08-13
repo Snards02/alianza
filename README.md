@@ -22,7 +22,7 @@ Abrir en navegador: http://localhost:4200
 
 ## Pruebas
 
-El proyecto incluye pruebas unitarias con Jasmine y está preparado para pruebas E2E con Cypress.
+El proyecto incluye pruebas unitarias con Jasmine y karma.
 
 ### Unit Test ejemplo
 
