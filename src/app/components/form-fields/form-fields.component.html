@@ -1,0 +1,66 @@
+<!-- Shared Key -->
+<div class="mb-3">
+  <label>Shared Key</label>
+  <input 
+    [(ngModel)]="cliente.sharedKey" 
+    name="sharedKey"
+    #sharedKey="ngModel"
+    class="form-control"
+    required
+    minlength="3"
+  >
+  <div *ngIf="sharedKey.invalid && sharedKey.touched" class="text-danger small">
+    <div *ngIf="sharedKey.errors?.['required']">Shared Key is required</div>
+    <div *ngIf="sharedKey.errors?.['minlength']">Must be at least 3 characters long</div>
+  </div>
+</div>
+
+<!-- Business ID -->
+<div class="mb-3">
+  <label>Business ID</label>
+  <input 
+    [(ngModel)]="cliente.businessId" 
+    name="businessId"
+    #businessId="ngModel"
+    type="text"
+    class="form-control"
+    required
+    min="1"
+  >
+  <div *ngIf="businessId.invalid && businessId.touched" class="text-danger small">
+    <div *ngIf="businessId.errors?.['required']">Business ID is required</div>
+  </div>
+</div>
+
+<!-- Email -->
+<div class="mb-3">
+  <label>Email</label>
+  <input 
+    [(ngModel)]="cliente.email" 
+    name="email"
+    #email="ngModel"
+    type="email"
+    class="form-control"
+    required
+    email
+  >
+  <div *ngIf="email.invalid && email.touched" class="text-danger small">
+    <div *ngIf="email.errors?.['required']">Email is required</div>
+    <div *ngIf="email.errors?.['email']">Invalid email format</div>
+  </div>
+</div>
+
+<!-- Phone -->
+<div class="mb-3">
+  <label>Phone</label>
+  <input 
+    [(ngModel)]="cliente.phone" 
+    name="phone"
+    #phone="ngModel"
+    class="form-control"
+    pattern="^[0-9]{7,15}$"
+  >
+  <div *ngIf="phone.invalid && phone.touched" class="text-danger small">
+    <div *ngIf="phone.errors?.['pattern']">Phone number must be between 7 and 15 digits</div>
+  </div>
+</div>

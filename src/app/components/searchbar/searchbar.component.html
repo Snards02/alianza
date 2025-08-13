@@ -1,0 +1,20 @@
+<div class="d-flex flex-wrap align-items-start gap-2" style="max-width: 600px;">
+  <div class="row">
+    <div class="col-9">
+      <div class="input-group flex-grow-1">
+        <input [(ngModel)]="filtro" class="form-control rounded-start-pill" placeholder="Enter shared key">
+        <button class="btn btn-outline-secondary rounded-end-pill" (click)="buscar()">
+          Search
+        </button>
+      </div>
+    </div>
+    <div class="col-3">
+      <button class="btn btn-primary flex-shrink-0 d-none d-sm-block" (click)="busquedaAvanzada()">
+        Advanced Search
+      </button>
+      <button class="btn btn-primary flex-shrink-0 d-block d-sm-none" (click)="busquedaAvanzada()">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </div>
+</div>

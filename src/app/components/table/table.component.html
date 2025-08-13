@@ -1,0 +1,28 @@
+<div class="table-responsive">
+  <table class="table table-bordered align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>Shared Key</th>
+        <th>Business ID</th>
+        <th>E-mail</th>
+        <th>Phone</th>
+        <th>Data Added</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of clientes">
+        <td>{{c.sharedKey}}</td>
+        <td>{{c.businessId}}</td>
+        <td>{{c.email}}</td>
+        <td>{{c.phone}}</td>
+        <td>{{c.dateAdded}}</td>
+        <td>
+          <button class="btn btn-sm btn-outline-secondary">
+            <i class="bi bi-pencil"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

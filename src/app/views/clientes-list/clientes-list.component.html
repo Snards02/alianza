@@ -1,0 +1,45 @@
+<div class="container-fluid background-color">
+
+  <div class="row">
+    <div class="col-2 bg-Light "><br>
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-10 p-4 mt-5 ">
+      <div class="container rounded-4 ">
+        <app-actionbar class="container rounded-4" (newClick)="abrirModal()" (exportClick)="exportarCSV()">
+        </app-actionbar>
+        <app-searchbar (search)="buscar($event)" (advancedSearch)="abrirModalAvanzado()">
+        </app-searchbar><br>
+      </div>
+
+      <div *ngIf="mensaje" class="alert alert-info">{{mensaje}}</div>
+      <div class="container mt-3">
+        <div class="modal fade" id="addClientModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">New Client</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form (ngSubmit)="guardar()">
+                  <app-form-fields [(cliente)]="newCliente">
+                  </app-form-fields>
+
+                  <button type="submit" class="btn btn-success" data-bs-dismiss="modal"
+                    [disabled]="newCliente.sharedKey == '' || newCliente.businessId == '' || newCliente.email == '' || newCliente.phone == ''">Save</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container rounded-4">
+        <h5 class="pt-4 mb-3 text-primary">Clients</h5>
+
+        <app-table [clientes]="clientes"></app-table>
+      </div>
+
+    </div>
+    <app-filter-advanced (advancedSearch)="buscarAvanzado($event)"></app-filter-advanced>
+    <div class="toast-container position-fixed top-0 align-items-center pt-3">
